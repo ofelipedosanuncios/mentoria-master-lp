@@ -1,0 +1,14 @@
+# Este repositorio publica APENAS o site.
+# Material interno do projeto fica no disco e nunca entra em commit.
+
+CLAUDE.md
+docs/
+
+# Imagem da marca que a pagina nao referencia
+assets/img/pattern.jpg
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+.env
