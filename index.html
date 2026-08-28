@@ -6,10 +6,34 @@
 <!-- Rascunho em preview. REMOVER esta linha antes de publicar no dominio definitivo. -->
 <meta name="robots" content="noindex, nofollow">
 <title>Mentoria Master | Pamela Neto | Mentoria individual para profissionais da área ambiental</title>
-<meta name="description" content="Aprenda a executar, na prática, os três serviços que o mercado ambiental mais contrata: IBAMA, Gestão de Resíduos e Licenciamento Ambiental. Mentoria individual e ao vivo.">
+<meta name="description" content="Aprenda a executar, na prática, os três serviços que o mercado ambiental mais contrata: IBAMA, Gestão de Resíduos e Licenciamento Ambiental. Mentoria individual e ao vivo, com acompanhamento de quem atua na área há mais de 10 anos.">
+<meta name="theme-color" content="#673165">
+
+<!-- Icone da aba -->
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+
+<!-- Previa ao compartilhar (WhatsApp, Instagram, TikTok).
+     ATENCAO: as URLs abaixo apontam para o endereco de preview.
+     Trocar as duas por https://mentoriamaster.com.br/... ao publicar no dominio definitivo,
+     e adicionar o <link rel="canonical"> apontando para o mesmo endereco. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Mentoria Master">
+<meta property="og:title" content="Você aprendeu a teoria. Agora é hora de aprender a executar.">
+<meta property="og:description" content="Aplique-se para a Mentoria Master. Mentoria individual e ao vivo para profissionais da área ambiental.">
+<meta property="og:url" content="https://ofelipedosanuncios.github.io/mentoria-master-lp/">
+<meta property="og:image" content="https://ofelipedosanuncios.github.io/mentoria-master-lp/assets/img/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pamela Neto Consultoria Ambiental">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Você aprendeu a teoria. Agora é hora de aprender a executar.">
+<meta name="twitter:description" content="Aplique-se para a Mentoria Master. Mentoria individual e ao vivo para profissionais da área ambiental.">
+<meta name="twitter:image" content="https://ofelipedosanuncios.github.io/mentoria-master-lp/assets/img/og-card.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --roxo:#673165;
@@ -22,6 +46,18 @@
   --tinta:#2B2B2B;
   --tinta-suave:#5A5257;
   --linha:#E4DCE2;
+  /* tons de texto sobre os fundos escuros da marca */
+  --sobre-escuro:#EDE4EC;
+  --sobre-escuro-2:#DCCFDB;
+  --sobre-escuro-3:#E6DAE5;
+  --sobre-escuro-4:#C9B7C8;
+  --sobre-roxo:#EFE3EE;
+  --sobre-roxo-2:#DCC8DB;
+  --sobre-roxo-3:#F1E7F0;
+  --rodape-texto:#D9C9D8;
+  --rodape-texto-2:#B69EB5;
+  /* estado: a identidade nao define cor de erro, esta foi derivada */
+  --erro:#9B2C4A;
   --display:'Cinzel',Georgia,serif;
   --corpo:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
@@ -46,10 +82,18 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 /* botao */
 .btn{display:inline-block;background:var(--roxo);color:#fff;font-family:var(--corpo);font-weight:500;font-size:14px;letter-spacing:.09em;text-transform:uppercase;padding:17px 34px;border:0;border-radius:2px;text-decoration:none;cursor:pointer;transition:background .25s ease,transform .25s ease}
 .btn:hover{background:var(--roxo-escuro);transform:translateY(-2px)}
-.btn:focus-visible{outline:3px solid var(--lilas);outline-offset:3px}
+.btn:focus-visible{outline:3px solid var(--roxo-escuro);outline-offset:3px}
+.final .btn:focus-visible{outline-color:#fff}
 .btn-claro{background:#fff;color:var(--roxo)}
 .btn-claro:hover{background:var(--creme)}
 .apoio-btn{font-size:13.5px;color:var(--tinta-suave);margin-top:14px;max-width:46ch}
+
+/* link de pular para o conteudo, visivel so no foco */
+.pular{position:absolute;left:-9999px;top:0;z-index:99;background:var(--roxo);color:#fff;padding:14px 22px;font-size:14px;text-decoration:none;border-radius:0 0 3px 0}
+.pular:focus{left:0}
+
+/* rotulo de grupo de opcoes (nao e <label>, porque nao aponta para um controle unico) */
+.campo .rotulo{display:block;font-size:14.5px;color:var(--roxo-escuro);margin-bottom:7px;font-weight:400}
 
 /* traco de assinatura */
 .assinatura{display:block;width:min(210px,42vw);margin:0 auto;opacity:.32}
@@ -76,18 +120,19 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 .dores li{padding:16px 0 16px 34px;border-bottom:1px solid var(--linha);position:relative;font-size:15.5px;color:var(--tinta-suave)}
 .dores li:first-child{border-top:1px solid var(--linha)}
 .dores li::before{content:"";position:absolute;left:0;top:23px;width:16px;height:1px;background:var(--lilas)}
-.fecho{margin-top:26px;padding:22px 26px;background:var(--creme);border-left:3px solid var(--roxo);font-size:15.5px}
+/* ocupa a linha inteira e cai depois da lista, tambem quando a grade empilha no mobile */
+.fecho{grid-column:1/-1;padding:22px 26px;background:var(--creme);border-left:3px solid var(--roxo);font-size:15.5px;max-width:78ch}
 
 /* SOLUCAO */
 .solucao{background:var(--roxo-escuro);color:#fff}
 .solucao h2,.solucao h3{color:#fff}
 .solucao .olho{color:var(--verde-claro)}
 .solucao .olho::before{background:var(--verde)}
-.solucao p{color:#EDE4EC}
+.solucao p{color:var(--sobre-escuro)}
 .muda{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:44px}
 .muda article{border-top:1px solid rgba(255,255,255,.22);padding-top:20px}
 .muda h3{font-size:17px;margin-bottom:8px}
-.muda p{font-size:14.5px;margin:0;color:#DCCFDB}
+.muda p{font-size:14.5px;margin:0;color:var(--sobre-escuro-2)}
 
 /* PARA QUEM */
 .publico{background:var(--creme)}
@@ -100,7 +145,7 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 .nao-e ul{list-style:none;display:grid;gap:11px}
 .nao-e li{font-size:14.5px;color:var(--tinta-suave);padding-left:24px;position:relative}
 .nao-e li::before{content:"";position:absolute;left:0;top:9px;width:11px;height:1px;background:var(--lilas);box-shadow:0 0 0 0 transparent}
-.rodape-secao{margin-top:26px;font-size:14px;color:var(--tinta-suave)}
+.rodape-secao{margin-top:26px;font-size:14px;color:var(--tinta-suave);max-width:62ch}
 
 /* MODULOS */
 .modulos{background:#fff}
@@ -110,7 +155,7 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 .mes{font-family:var(--display);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--roxo);margin-bottom:16px;display:block}
 .modulo h3{font-size:19px;margin-bottom:12px}
 .modulo p{font-size:14.5px;color:var(--tinta-suave);margin:0}
-.faixa-verde{margin-top:40px;background:var(--verde-claro);color:var(--roxo-escuro);padding:26px 30px;border-radius:3px;font-size:16px;text-align:center}
+.faixa-verde{margin:40px auto 0;background:var(--verde-claro);color:var(--roxo-escuro);padding:26px 30px;border-radius:3px;font-size:16px;text-align:center;max-width:68ch}
 .centro{text-align:center;margin-top:40px}
 
 /* PAVA */
@@ -123,11 +168,12 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 .pilar:nth-child(1) .letra{background:var(--roxo)}
 .pilar:nth-child(2) .letra{background:var(--verde);color:var(--roxo-escuro)}
 .pilar:nth-child(3) .letra{background:var(--roxo-escuro)}
-.pilar:nth-child(4) .letra{background:var(--lilas)}
+.pilar:nth-child(4) .letra{background:var(--lilas);color:var(--roxo-escuro)}
 .pilar h3{font-size:16.5px;margin-bottom:6px}
 .pilar p{font-size:14.5px;color:var(--tinta-suave);margin:0}
 
 /* COMO FUNCIONA */
+.comofunciona{background:#fff}
 .ficha{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);border:1px solid var(--linha);border-radius:3px;overflow:hidden;margin-top:44px}
 .ficha div{background:#fff;padding:24px 22px}
 .ficha dt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--roxo);margin-bottom:8px}
@@ -143,18 +189,18 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 .bonus h2,.bonus h3{color:#fff}
 .bonus .olho{color:var(--verde-claro)}
 .bonus .olho::before{background:var(--verde)}
-.bonus p{color:#E6DAE5}
+.bonus p{color:var(--sobre-escuro-3)}
 .bonus-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px}
 .cartao-bonus{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:3px;padding:32px 30px}
 .selo-bonus{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--roxo-escuro);background:var(--verde-claro);padding:6px 12px;border-radius:2px;margin-bottom:18px;font-weight:500}
 .cartao-bonus h3{font-size:19px;margin-bottom:14px}
 .cartao-bonus ul{list-style:none;display:grid;gap:10px;margin-top:14px}
-.cartao-bonus li{font-size:14.5px;color:#E6DAE5;padding-left:22px;position:relative}
+.cartao-bonus li{font-size:14.5px;color:var(--sobre-escuro-3);padding-left:22px;position:relative}
 .cartao-bonus li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:1px;background:var(--verde)}
 .telas{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-top:34px}
 .telas img{border-radius:3px;border:1px solid rgba(255,255,255,.2)}
 .telas .coluna{display:grid;gap:16px}
-.legenda{font-size:12.5px;color:#C9B7C8;margin-top:14px;text-align:center}
+.legenda{font-size:12.5px;color:var(--sobre-escuro-4);margin:14px auto 0;text-align:center;max-width:60ch}
 
 /* MATERIAIS */
 .materiais{background:#fff}
@@ -211,23 +257,23 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 
 /* FAQ */
 .faq{background:var(--creme)}
-.faq-lista{margin-top:40px;border-top:1px solid var(--linha)}
+.faq-lista{margin-top:40px;border-top:1px solid var(--linha);max-width:63ch}
 details{border-bottom:1px solid var(--linha)}
 summary{cursor:pointer;padding:22px 44px 22px 0;font-size:16px;color:var(--roxo-escuro);font-weight:400;position:relative;list-style:none}
 summary::-webkit-details-marker{display:none}
 summary::after{content:"+";position:absolute;right:8px;top:19px;font-size:22px;color:var(--roxo);font-weight:300}
 details[open] summary::after{content:"-"}
-summary:focus-visible{outline:2px solid var(--lilas);outline-offset:2px}
+summary:focus-visible{outline:2px solid var(--roxo-escuro);outline-offset:2px}
 details p{padding:0 40px 24px 0;font-size:15px;color:var(--tinta-suave);margin:0}
 
 /* CTA FINAL */
 .final{background:var(--roxo);color:#fff;text-align:center}
 .final h2{color:#fff}
 .caminhos{list-style:none;max-width:660px;margin:34px auto 0;display:grid;gap:12px;text-align:left}
-.caminhos li{background:rgba(255,255,255,.09);padding:16px 22px;border-radius:2px;font-size:15px;color:#F1E7F0}
+.caminhos li{background:rgba(255,255,255,.09);padding:16px 22px;border-radius:2px;font-size:15px;color:var(--sobre-roxo-3)}
 .caminhos li:last-child{background:#fff;color:var(--roxo-escuro);font-weight:500}
-.final p{color:#EFE3EE;max-width:62ch;margin:30px auto 0}
-.final .apoio-btn{color:#DCC8DB;margin:16px auto 0}
+.final p{color:var(--sobre-roxo);max-width:62ch;margin:30px auto 0}
+.final .apoio-btn{color:var(--sobre-roxo-2);margin:16px auto 0}
 
 /* FORMULARIO */
 .form{background:#fff}
@@ -243,7 +289,13 @@ details p{padding:0 40px 24px 0;font-size:15px;color:var(--tinta-suave);margin:0
 .campo .dica{display:block;font-size:12.5px;color:var(--tinta-suave);margin-bottom:9px;line-height:1.5}
 .campo input[type=text],.campo input[type=email],.campo input[type=tel],.campo select,.campo textarea{width:100%;padding:13px 15px;border:1px solid var(--linha);border-radius:2px;font-family:var(--corpo);font-size:15px;color:var(--tinta);background:#fff;font-weight:300}
 .campo textarea{min-height:96px;resize:vertical}
-.campo input:focus,.campo select:focus,.campo textarea:focus{outline:none;border-color:var(--roxo);box-shadow:0 0 0 3px rgba(103,49,101,.12)}
+/* so os campos de digitacao trocam o anel nativo pela borda + halo.
+   radio e checkbox mantem o foco nativo (ver .opcao input:focus-visible). */
+.campo input[type=text]:focus,.campo input[type=email]:focus,.campo input[type=tel]:focus,
+.campo select:focus,.campo textarea:focus{outline:none;border-color:var(--roxo);box-shadow:0 0 0 3px rgba(103,49,101,.22)}
+.opcao input:focus-visible{outline:3px solid var(--roxo-escuro);outline-offset:2px}
+.opcao:focus-within{border-color:var(--roxo);background:var(--verde-vidro)}
+.lgpd input:focus-visible{outline:3px solid var(--roxo-escuro);outline-offset:2px}
 .opcoes{display:grid;gap:9px}
 .opcao{display:flex;gap:11px;align-items:flex-start;padding:12px 15px;border:1px solid var(--linha);border-radius:2px;cursor:pointer;font-size:14.5px;transition:border-color .2s ease,background .2s ease}
 .opcao:hover{border-color:var(--verde);background:var(--verde-vidro)}
@@ -258,17 +310,17 @@ details p{padding:0 40px 24px 0;font-size:15px;color:var(--tinta-suave);margin:0
 .sucesso .simbolo{width:96px;margin:0 auto 22px;opacity:.7}
 .sucesso h3{font-size:24px;margin-bottom:16px}
 .sucesso p{color:var(--tinta-suave);max-width:46ch;margin:0 auto 12px;font-size:15px}
-.erro{color:#9B2C4A;font-size:13px;margin-top:8px;display:none}
+.erro{color:var(--erro);font-size:13px;margin-top:8px;display:none}
 .erro.visivel{display:block}
 
 /* RODAPE */
-footer{background:var(--roxo-escuro);color:#D9C9D8;padding:56px 0 34px;font-size:14px}
+footer{background:var(--roxo-escuro);color:var(--rodape-texto);padding:56px 0 34px;font-size:14px}
 .rodape-grid{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:start;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.14)}
 footer img{width:170px;filter:brightness(0) invert(1);opacity:.92}
-footer a{color:#D9C9D8;text-decoration:none;border-bottom:1px solid rgba(217,201,216,.35)}
+footer a{color:var(--rodape-texto);text-decoration:none;border-bottom:1px solid rgba(217,201,216,.35)}
 footer a:hover{color:#fff}
 .rodape-links{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end}
-.rodape-base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:24px;font-size:12.5px;color:#B69EB5}
+.rodape-base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:24px;font-size:12.5px;color:var(--rodape-texto-2)}
 
 @media (max-width:900px){
   .hero-grid,.problema-grid,.pava-grid,.mat-grid,.sobre-grid,.compara-grid,.bonus-grid{grid-template-columns:1fr}
@@ -291,12 +343,14 @@ footer a:hover{color:#fff}
 </head>
 <body>
 
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
 <!-- HERO -->
 <header class="hero">
   <div class="env">
     <div class="hero-grid">
       <div>
-        <img src="assets/img/logo.png" alt="Pamela Neto Consultoria Ambiental" class="marca">
+        <img src="assets/img/logo.png" alt="Pamela Neto Consultoria Ambiental" class="marca" width="440" height="203">
         <span class="tarja">Mentoria individual para profissionais da área ambiental</span>
         <h1>Você aprendeu a teoria.<br>Agora é hora de aprender a executar.</h1>
         <p class="hero-sub">Mentoria individual e ao vivo para profissionais da área ambiental que querem executar, com segurança, os três serviços que o mercado mais contrata: Serviços do IBAMA, Gestão de Resíduos e Licenciamento Ambiental.</p>
@@ -309,11 +363,13 @@ footer a:hover{color:#fff}
         </ul>
       </div>
       <div class="hero-foto">
-        <img src="assets/img/pamela-hero.jpg" alt="Pamela Neto, engenheira ambiental e sanitarista">
+        <img src="assets/img/pamela-hero.jpg" alt="Pamela Neto, engenheira ambiental e sanitarista" width="548" height="760" fetchpriority="high">
       </div>
     </div>
   </div>
 </header>
+
+<main id="conteudo">
 
 <!-- PROBLEMA -->
 <section class="secao problema">
@@ -324,7 +380,6 @@ footer a:hover{color:#fff}
         <h2>Saber o conteúdo não é a mesma coisa que saber executar</h2>
         <p>A faculdade ensina legislação, conceito e teoria. Mas ninguém mostra como abrir o portal do órgão, montar a documentação, protocolar um processo e responder a uma exigência técnica com o nome da sua responsabilidade em cima.</p>
         <p>É por isso que tantos profissionais competentes travam na hora de executar.</p>
-        <div class="fecho">Se você se reconheceu em mais de um desses pontos, o problema não é a sua capacidade. É a falta de um caminho testado e de alguém que já percorreu esse caminho ao seu lado.</div>
       </div>
       <ul class="dores">
         <li>Você entende de meio ambiente, mas trava na hora de conduzir o processo do começo ao fim.</li>
@@ -334,6 +389,7 @@ footer a:hover{color:#fff}
         <li>Sabe fazer, mas não sabe precificar, apresentar proposta nem conduzir o comercial.</li>
         <li>Está há meses tentando aprender sozinho, no tentativa e erro, e sente que não sai do lugar.</li>
       </ul>
+      <div class="fecho">Se você se reconheceu em mais de um desses pontos, o problema não é a sua capacidade. É a falta de um caminho testado e de alguém que já percorreu esse caminho ao seu lado.</div>
     </div>
   </div>
 </section>
@@ -364,7 +420,7 @@ footer a:hover{color:#fff}
       <div class="perfil"><h3>Atua como autônomo ou consultor</h3><p>E quer ampliar a atuação para novos serviços, com mais segurança técnica.</p></div>
       <div class="perfil"><h3>Quer estruturar a própria consultoria</h3><p>E precisa de um processo técnico e comercial organizado para começar.</p></div>
       <div class="perfil"><h3>Se formou recentemente</h3><p>E quer sair da insegurança do início de carreira sem passar anos no tentativa e erro.</p></div>
-      <div class="perfil"><h3>Está em transição para a área</h3><p>E quer aprender a executar de verdade, e não apenas acumular certificados.</p></div>
+      <div class="perfil"><h3>Está em transição para a área ambiental</h3><p>E quer aprender a executar de verdade, e não apenas acumular certificados.</p></div>
     </div>
     <div class="nao-e">
       <h3>Não é para você se…</h3>
@@ -415,15 +471,16 @@ footer a:hover{color:#fff}
     <div class="pava-grid">
       <div>
         <svg class="roda" viewBox="0 0 400 400" role="img" aria-label="Diagrama do Método P.A.V.A. com quatro pilares: Posicionamento, Aquisição de oportunidades, Valor técnico e Avanço profissional">
-          <path d="M200 200 L200 40 A160 160 0 0 0 40 200 Z" fill="#E4DCE2"/>
-          <path d="M200 200 L200 40 A160 160 0 0 1 360 200 Z" fill="#AED3C2"/>
+          <!-- as quatro cores abaixo acompanham os marcadores dos pilares ao lado -->
+          <path d="M200 200 L200 40 A160 160 0 0 0 40 200 Z" fill="#673165"/>
+          <path d="M200 200 L200 40 A160 160 0 0 1 360 200 Z" fill="#9BC4B3"/>
           <path d="M200 200 L360 200 A160 160 0 0 1 200 360 Z" fill="#4A2249"/>
-          <path d="M200 200 L200 360 A160 160 0 0 1 40 200 Z" fill="#673165"/>
+          <path d="M200 200 L200 360 A160 160 0 0 1 40 200 Z" fill="#A983B7"/>
           <circle cx="200" cy="200" r="60" fill="#F7F5F6"/>
-          <text x="120" y="130" font-family="Cinzel,serif" font-size="42" fill="#4A2249" text-anchor="middle">P</text>
+          <text x="120" y="130" font-family="Cinzel,serif" font-size="42" fill="#FFFFFF" text-anchor="middle">P</text>
           <text x="280" y="130" font-family="Cinzel,serif" font-size="42" fill="#4A2249" text-anchor="middle">A</text>
           <text x="280" y="295" font-family="Cinzel,serif" font-size="42" fill="#FFFFFF" text-anchor="middle">V</text>
-          <text x="120" y="295" font-family="Cinzel,serif" font-size="42" fill="#FFFFFF" text-anchor="middle">A</text>
+          <text x="120" y="295" font-family="Cinzel,serif" font-size="42" fill="#4A2249" text-anchor="middle">A</text>
           <text x="200" y="196" font-family="Cinzel,serif" font-size="19" fill="#673165" text-anchor="middle">P.A.V.A.</text>
           <text x="200" y="218" font-family="Poppins,sans-serif" font-size="10.5" fill="#5A5257" text-anchor="middle" letter-spacing="1">MÉTODO</text>
         </svg>
@@ -440,7 +497,7 @@ footer a:hover{color:#fff}
 </section>
 
 <!-- COMO FUNCIONA -->
-<section class="secao modulos">
+<section class="secao comofunciona">
   <div class="env">
     <span class="olho">Como funciona</span>
     <h2>Como funciona na prática</h2>
@@ -492,10 +549,10 @@ footer a:hover{color:#fff}
       </div>
     </div>
     <div class="telas">
-      <img src="assets/img/ed-home.jpg" alt="Tela inicial do Escritório Digital, com áreas de gestão, empresa e serviços">
+      <img src="assets/img/ed-home.jpg" alt="Tela inicial do Escritório Digital, com áreas de gestão, empresa e serviços" width="760" height="365" loading="lazy" decoding="async">
       <div class="coluna">
-        <img src="assets/img/ed-tarefas.jpg" alt="Tela de gestão de tarefas do Escritório Digital">
-        <img src="assets/img/ed-financeiro.jpg" alt="Tela de controle financeiro do Escritório Digital">
+        <img src="assets/img/ed-tarefas.jpg" alt="Tela de gestão de tarefas do Escritório Digital" width="760" height="242" loading="lazy" decoding="async">
+        <img src="assets/img/ed-financeiro.jpg" alt="Tela de controle financeiro do Escritório Digital" width="760" height="420" loading="lazy" decoding="async">
       </div>
     </div>
     <p class="legenda">A maior parte dos profissionais técnicos perde tempo e dinheiro por desorganização, não por falta de conhecimento. O Escritório Digital resolve isso.</p>
@@ -520,7 +577,7 @@ footer a:hover{color:#fff}
         <p class="destaque-mat">Todos os modelos são editáveis, de acesso vitalício e podem ser usados nos seus serviços reais, com os seus clientes.</p>
       </div>
       <div class="mat-visual">
-        <img src="assets/img/simbolo.png" alt="">
+        <img src="assets/img/simbolo.png" alt="" width="600" height="300" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
@@ -530,7 +587,7 @@ footer a:hover{color:#fff}
 <section class="secao sobre">
   <div class="env">
     <div class="sobre-grid">
-      <div class="sobre-foto"><img src="assets/img/pamela-sobre.jpg" alt="Pamela Neto"></div>
+      <div class="sobre-foto"><img src="assets/img/pamela-sobre.jpg" alt="Pamela Neto" width="622" height="700" loading="lazy" decoding="async"></div>
       <div>
         <span class="olho">Quem vai te acompanhar</span>
         <h2>Quem vai te acompanhar nesses 4 meses</h2>
@@ -579,19 +636,19 @@ footer a:hover{color:#fff}
     <h2>Quem já passou por essa transformação</h2>
     <div class="depo-grid">
       <div class="card-depo">
-        <span class="aspas">“</span>
+        <span class="aspas" aria-hidden="true">“</span>
         <p>Uma mentoria nos ajuda a reencontrar o caminho, quando tudo parece perdido. A mentoria me ajudou a me sentir mais confiante. Percebi que aprendi de verdade e que agora eu consigo lidar com as demandas relacionadas ao IBAMA, sabendo exatamente o que preciso fazer.</p>
-        <div class="autor"><img src="assets/img/roberta.jpg" alt="Roberta de Souza"><div><strong>Roberta de Souza</strong><span>Aluna da Mentoria Master</span></div></div>
+        <div class="autor"><img src="assets/img/roberta.jpg" alt="Roberta de Souza" width="130" height="130" loading="lazy" decoding="async"><div><strong>Roberta de Souza</strong><span>Aluna da Mentoria Master</span></div></div>
       </div>
       <div class="card-depo">
-        <span class="aspas">“</span>
+        <span class="aspas" aria-hidden="true">“</span>
         <p>A aula prática sobre PGRS da Pamela foi incrível. Ela tem uma didática excelente e, em poucas horas, conseguiu ensinar toda a estrutura necessária para elaborar um PGRS do zero. Tenho certeza de que vou utilizar muito os modelos de documentos no meu dia a dia da consultoria.</p>
         <div class="autor"><span class="sem-foto" aria-hidden="true">LC</span><div><strong>Luan Cruz</strong><span>Aluno da Mentoria Master</span></div></div>
       </div>
       <div class="card-depo">
-        <span class="aspas">“</span>
+        <span class="aspas" aria-hidden="true">“</span>
         <p>Antes, estava insegura, com muitas dúvidas. Depois da consultoria me sinto uma profissional bem mais preparada, pois todas as dúvidas foram sanadas com muito cuidado e responsabilidade profissional. A Pâmela tem muito conhecimento e paixão pelo que faz.</p>
-        <div class="autor"><img src="assets/img/tamara.jpg" alt="Tamara Alves"><div><strong>Tamara Alves</strong><span>GEOTAM</span></div></div>
+        <div class="autor"><img src="assets/img/tamara.jpg" alt="Tamara Alves" width="130" height="130" loading="lazy" decoding="async"><div><strong>Tamara Alves</strong><span>GEOTAM</span></div></div>
       </div>
     </div>
   </div>
@@ -610,7 +667,7 @@ footer a:hover{color:#fff}
       <div class="passo"><p>Na call, conversamos sobre o seu momento, eu apresento a mentoria em detalhes e você decide com calma.</p></div>
     </div>
     <div class="garantia">
-      <span class="num">7</span>
+      <span class="num" aria-hidden="true">7</span>
       <div>
         <h3>Garantia de 7 dias</h3>
         <p>Se você entrar e sentir que a mentoria não é para você, tem 7 dias para desistir e receber o valor integral de volta. Está previsto em contrato.</p>
@@ -665,40 +722,40 @@ footer a:hover{color:#fff}
 
     <div class="form-caixa">
       <div id="progresso">
-        <div class="barra"><span id="barra-preenchida"></span></div>
-        <p class="contador">Etapa <b id="etapa-atual">1</b> de 7</p>
+        <div class="barra" role="progressbar" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1" id="barra"><span id="barra-preenchida"></span></div>
+        <p class="contador" aria-live="polite">Etapa <b id="etapa-atual">1</b> de 7</p>
       </div>
 
       <form id="aplicacaoForm" novalidate>
         <!-- 1 -->
-        <fieldset class="tela ativa" data-tela="1" style="border:0">
-          <h3>Identificação</h3>
-          <div class="campo"><label for="nome">Qual é o seu nome e sobrenome?</label><input type="text" id="nome" name="nome" required></div>
-          <div class="campo"><label for="email">Qual é o seu melhor e-mail?</label><span class="dica">Seu e-mail será utilizado pela nossa equipe para enviar informações e, se aprovado(a), o convite para a sessão de avaliação.</span><input type="email" id="email" name="email" required></div>
-          <div class="campo"><label for="whats">Qual é o seu número de WhatsApp?</label><span class="dica">Seu WhatsApp será utilizado pela nossa equipe para entrar em contato e dar continuidade à sua aplicação.</span><input type="tel" id="whats" name="whats" required></div>
-          <div class="campo"><label for="insta">Qual é o seu @ do Instagram profissional?</label><span class="dica">Utilize o perfil que você usa profissionalmente. Essa informação é importante para eu conhecer melhor o seu momento profissional.</span><input type="text" id="insta" name="insta" required></div>
+        <fieldset class="tela ativa" data-tela="1" style="border:0" aria-labelledby="tela-1-titulo">
+          <h3 id="tela-1-titulo" tabindex="-1">Identificação</h3>
+          <div class="campo"><label for="nome">Qual é o seu nome e sobrenome?</label><input type="text" id="nome" name="nome" autocomplete="name" required></div>
+          <div class="campo"><label for="email">Qual é o seu melhor e-mail?</label><span class="dica">Seu e-mail será utilizado pela nossa equipe para enviar informações e, se aprovado(a), o convite para a sessão de avaliação.</span><input type="email" id="email" name="email" autocomplete="email" required></div>
+          <div class="campo"><label for="whats">Qual é o seu número de WhatsApp?</label><span class="dica">Seu WhatsApp será utilizado pela nossa equipe para entrar em contato e dar continuidade à sua aplicação.</span><input type="tel" id="whats" name="whats" autocomplete="tel" inputmode="tel" placeholder="(11) 90000-0000" required></div>
+          <div class="campo"><label for="insta">Qual é o seu @ do Instagram profissional?</label><span class="dica">Utilize o perfil que você usa profissionalmente. Essa informação é importante para eu conhecer melhor o seu momento profissional.</span><input type="text" id="insta" name="insta" autocomplete="off" required></div>
         </fieldset>
 
         <!-- 2 -->
-        <fieldset class="tela" data-tela="2" style="border:0">
-          <h3>Formação</h3>
+        <fieldset class="tela" data-tela="2" style="border:0" aria-labelledby="tela-2-titulo">
+          <h3 id="tela-2-titulo" tabindex="-1">Formação</h3>
           <div class="campo">
-            <label>Você já é formado(a) na área ambiental?</label>
-            <div class="opcoes">
+            <span class="rotulo" id="rot-formado">Você já é formado(a) na área ambiental?</span>
+            <div class="opcoes" role="radiogroup" aria-labelledby="rot-formado">
               <label class="opcao"><input type="radio" name="formado" value="Sim" required> Sim</label>
               <label class="opcao"><input type="radio" name="formado" value="Em formação"> Não, mas estou em formação</label>
               <label class="opcao"><input type="radio" name="formado" value="Outra área"> Não, minha formação é em outra área</label>
             </div>
           </div>
-          <div class="campo"><label for="formacao">Qual é a sua formação?</label><span class="dica">Se você possui mais de uma formação, informe a principal.</span><input type="text" id="formacao" name="formacao" required></div>
+          <div class="campo"><label for="formacao">Qual é a sua formação?</label><span class="dica">Se você possui mais de uma formação, informe a principal.</span><input type="text" id="formacao" name="formacao" autocomplete="off" required></div>
         </fieldset>
 
         <!-- 3 -->
-        <fieldset class="tela" data-tela="3" style="border:0">
-          <h3>Momento profissional</h3>
+        <fieldset class="tela" data-tela="3" style="border:0" aria-labelledby="tela-3-titulo">
+          <h3 id="tela-3-titulo" tabindex="-1">Momento profissional</h3>
           <div class="campo">
-            <label>Qual destas opções melhor representa o seu momento profissional hoje?</label>
-            <div class="opcoes">
+            <span class="rotulo" id="rot-momento">Qual destas opções melhor representa o seu momento profissional hoje?</span>
+            <div class="opcoes" role="radiogroup" aria-labelledby="rot-momento">
               <label class="opcao"><input type="radio" name="momento" value="nao-atuo" required> Ainda não atuo na área ambiental</label>
               <label class="opcao"><input type="radio" name="momento" value="transicao"> Estou em transição para a área ambiental</label>
               <label class="opcao"><input type="radio" name="momento" value="clt"> Atuo na área ambiental como CLT</label>
@@ -712,13 +769,13 @@ footer a:hover{color:#fff}
         </fieldset>
 
         <!-- 4 -->
-        <fieldset class="tela" data-tela="4" style="border:0">
-          <h3>Desafios</h3>
+        <fieldset class="tela" data-tela="4" style="border:0" aria-labelledby="tela-4-titulo">
+          <h3 id="tela-4-titulo" tabindex="-1">Desafios</h3>
           <div class="campo"><label for="desafio">Hoje, qual é o seu maior desafio profissional na área ambiental?</label><textarea id="desafio" name="desafio" required></textarea></div>
           <div class="campo">
-            <label>Quais serviços ou áreas técnicas você gostaria de aprender ou dominar?</label>
+            <span class="rotulo" id="rot-servicos">Quais serviços ou áreas técnicas você gostaria de aprender ou dominar?</span>
             <span class="dica">Selecione todas as opções que fazem sentido para você.</span>
-            <div class="opcoes">
+            <div class="opcoes" role="group" aria-labelledby="rot-servicos">
               <label class="opcao"><input type="checkbox" name="servicos" value="licenciamento"> Licenciamento Ambiental</label>
               <label class="opcao"><input type="checkbox" name="servicos" value="residuos"> Gestão de Resíduos</label>
               <label class="opcao"><input type="checkbox" name="servicos" value="pgrs"> PGRS / PGRSS / PGRCC</label>
@@ -732,18 +789,18 @@ footer a:hover{color:#fff}
         </fieldset>
 
         <!-- 5 -->
-        <fieldset class="tela" data-tela="5" style="border:0">
-          <h3>Objetivos</h3>
+        <fieldset class="tela" data-tela="5" style="border:0" aria-labelledby="tela-5-titulo">
+          <h3 id="tela-5-titulo" tabindex="-1">Objetivos</h3>
           <div class="campo"><label for="seis-meses">O que você gostaria de conquistar profissionalmente nos próximos 6 meses?</label><textarea id="seis-meses" name="seis-meses" required></textarea></div>
           <div class="campo"><label for="unica">Se você pudesse resolver apenas uma questão da sua vida profissional hoje, qual seria?</label><textarea id="unica" name="unica" required></textarea></div>
         </fieldset>
 
         <!-- 6 -->
-        <fieldset class="tela" data-tela="6" style="border:0">
-          <h3>Momento de decisão</h3>
+        <fieldset class="tela" data-tela="6" style="border:0" aria-labelledby="tela-6-titulo">
+          <h3 id="tela-6-titulo" tabindex="-1">Momento de decisão</h3>
           <div class="campo">
-            <label>Você pretende investir no seu crescimento profissional nos próximos meses?</label>
-            <div class="opcoes">
+            <span class="rotulo" id="rot-investir">Você pretende investir no seu crescimento profissional nos próximos meses?</span>
+            <div class="opcoes" role="radiogroup" aria-labelledby="rot-investir">
               <label class="opcao"><input type="radio" name="investir" value="agora" required> Sim, estou buscando uma solução para isso agora</label>
               <label class="opcao"><input type="radio" name="investir" value="avaliando"> Sim, mas ainda estou avaliando as opções</label>
               <label class="opcao"><input type="radio" name="investir" value="talvez"> Talvez, dependendo da proposta</label>
@@ -763,23 +820,24 @@ footer a:hover{color:#fff}
             </select>
           </div>
           <div class="campo">
-            <label>Você já investiu em algum curso, mentoria, formação ou aceleração profissional?</label>
-            <div class="opcoes">
+            <span class="rotulo" id="rot-investiu">Você já investiu em algum curso, mentoria, formação ou aceleração profissional?</span>
+            <div class="opcoes" role="radiogroup" aria-labelledby="rot-investiu">
               <label class="opcao"><input type="radio" name="investiu" value="sim" required> Sim</label>
               <label class="opcao"><input type="radio" name="investiu" value="nao"> Não</label>
             </div>
-            <textarea id="investiu-quais" name="investiu-quais" placeholder="Se sim, conte brevemente quais foram e como foi sua experiência." style="margin-top:10px"></textarea>
+            <label for="investiu-quais" class="dica" style="margin-top:10px">Se sim, conte brevemente quais foram e como foi sua experiência.</label>
+            <textarea id="investiu-quais" name="investiu-quais"></textarea>
           </div>
         </fieldset>
 
         <!-- 7 -->
-        <fieldset class="tela" data-tela="7" style="border:0">
-          <h3>Para finalizar</h3>
+        <fieldset class="tela" data-tela="7" style="border:0" aria-labelledby="tela-7-titulo">
+          <h3 id="tela-7-titulo" tabindex="-1">Para finalizar</h3>
           <div class="campo"><label for="momento-certo">Por que você acredita que este é o momento certo para buscar uma mentoria profissional?</label><textarea id="momento-certo" name="momento-certo" required></textarea></div>
           <label class="lgpd"><input type="checkbox" id="lgpd" required> <span>Ao enviar, você concorda que os seus dados sejam utilizados para avaliação da sua aplicação e contato sobre a Mentoria Master, conforme a nossa <a href="#">Política de Privacidade</a>.</span></label>
         </fieldset>
 
-        <p class="erro" id="erro">Preencha os campos desta etapa para continuar.</p>
+        <p class="erro" id="erro" role="alert"></p>
 
         <div class="navegacao" id="navegacao">
           <button type="button" class="btn-voltar" id="voltar" style="visibility:hidden">← Voltar</button>
@@ -788,7 +846,7 @@ footer a:hover{color:#fff}
       </form>
 
       <div class="sucesso" id="sucesso">
-        <img src="assets/img/simbolo.png" alt="" class="simbolo">
+        <img src="assets/img/simbolo.png" alt="" class="simbolo" width="600" height="300" loading="lazy" decoding="async">
         <h3>Aplicação enviada!</h3>
         <p>Obrigada por responder. Agora é só ficar de olho no seu WhatsApp.</p>
         <p>Minha equipe vai analisar as suas respostas e, caso o seu perfil esteja alinhado com a Mentoria Master, entraremos em contato para dar continuidade à sua aplicação.</p>
@@ -798,11 +856,13 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="env">
     <div class="rodape-grid">
       <div>
-        <img src="assets/img/logo.png" alt="Pamela Neto Consultoria Ambiental">
+        <img src="assets/img/logo.png" alt="Pamela Neto Consultoria Ambiental" width="440" height="203" loading="lazy" decoding="async">
         <p style="margin-top:18px">Pamela Neto Consultoria Ambiental · Engenheira Ambiental e Sanitarista · CREA/SP 5070315688</p>
         <p>(11) 97565-2171 · consultoria@pamelaneto.com.br</p>
       </div>
@@ -824,6 +884,7 @@ footer a:hover{color:#fff}
   var telas = Array.prototype.slice.call(document.querySelectorAll('.tela'));
   var atual = 0;
   var barra = document.getElementById('barra-preenchida');
+  var barraAria = document.getElementById('barra');
   var contador = document.getElementById('etapa-atual');
   var voltar = document.getElementById('voltar');
   var avancar = document.getElementById('avancar');
@@ -835,42 +896,123 @@ footer a:hover{color:#fff}
   function pinta(){
     telas.forEach(function(t,i){ t.classList.toggle('ativa', i===atual); });
     barra.style.width = ((atual+1)/telas.length*100) + '%';
+    barraAria.setAttribute('aria-valuenow', atual+1);
     contador.textContent = atual+1;
     voltar.style.visibility = atual===0 ? 'hidden' : 'visible';
     avancar.textContent = atual===telas.length-1 ? 'Enviar aplicação' : 'Continuar';
-    erro.classList.remove('visivel');
+    limpaErro();
   }
 
-  function valida(){
+  function limpaErro(){
+    erro.textContent = '';
+    erro.classList.remove('visivel');
+    telas[atual].querySelectorAll('[aria-invalid]').forEach(function(c){
+      c.removeAttribute('aria-invalid');
+    });
+  }
+
+  function rotuloDe(campo){
+    var lab = campo.id && document.querySelector('label[for="'+campo.id+'"]');
+    if (lab) return lab.textContent.trim().replace(/\?$/,'');
+    var grupo = campo.closest('.opcoes');
+    if (grupo){
+      var r = document.getElementById(grupo.getAttribute('aria-labelledby'));
+      if (r) return r.textContent.trim().replace(/\?$/,'');
+    }
+    if (campo.id === 'lgpd') return 'o aceite da Política de Privacidade';
+    return 'este campo';
+  }
+
+  function emailValido(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
+  }
+  function telefoneValido(v){
+    var d = v.replace(/\D/g,'');
+    return d.length >= 10 && d.length <= 13;
+  }
+
+  // devolve null se a tela esta completa, ou o campo que travou
+  function primeiroInvalido(){
     var tela = telas[atual];
     var campos = tela.querySelectorAll('[required]');
-    var grupos = {};
+    var vistos = {};
     for (var i=0;i<campos.length;i++){
       var c = campos[i];
-      if (c.type==='radio'){ grupos[c.name] = grupos[c.name] || tela.querySelector('input[name="'+c.name+'"]:checked'); continue; }
-      if (c.type==='checkbox'){ if(!c.checked) return false; continue; }
-      if (!c.value.trim()) return false;
-      if (c.type==='email' && c.value.indexOf('@')<1) return false;
+      if (c.type === 'radio'){
+        if (vistos[c.name]) continue;
+        vistos[c.name] = true;
+        if (!tela.querySelector('input[name="'+c.name+'"]:checked')) return c;
+        continue;
+      }
+      if (c.type === 'checkbox'){ if (!c.checked) return c; continue; }
+      if (!c.value.trim()) return c;
+      if (c.type === 'email' && !emailValido(c.value)) return c;
+      if (c.type === 'tel' && !telefoneValido(c.value)) return c;
     }
-    for (var g in grupos){ if(!grupos[g]) return false; }
-    return true;
+    return null;
   }
 
-  avancar.addEventListener('click', function(){
-    if(!valida()){ erro.classList.add('visivel'); return; }
-    if(atual < telas.length-1){
-      atual++; pinta();
-      document.getElementById('aplicacao').scrollIntoView({block:'start'});
+  function mensagemPara(campo){
+    if (campo.type === 'email' && campo.value.trim()) return 'Confira o e-mail: parece estar incompleto.';
+    if (campo.type === 'tel' && campo.value.trim()) return 'Confira o WhatsApp: informe DDD e número.';
+    if (campo.id === 'lgpd') return 'Para enviar, é preciso aceitar a Política de Privacidade.';
+    return 'Preencha "' + rotuloDe(campo) + '" para continuar.';
+  }
+
+  function mostraErro(campo){
+    erro.textContent = mensagemPara(campo);
+    erro.classList.add('visivel');
+    campo.setAttribute('aria-invalid','true');
+    var alvo = campo.type === 'radio' || campo.type === 'checkbox' ? campo : campo;
+    try { alvo.focus({preventScroll:false}); } catch(e){ alvo.focus(); }
+  }
+
+  function irPara(indice){
+    atual = indice;
+    pinta();
+    document.getElementById('aplicacao').scrollIntoView({block:'start'});
+    // leva o foco para o titulo da nova etapa, para quem navega por teclado ou leitor de tela
+    var titulo = telas[atual].querySelector('h3');
+    if (titulo) titulo.focus({preventScroll:true});
+  }
+
+  function seguir(){
+    var invalido = primeiroInvalido();
+    if (invalido){ mostraErro(invalido); return; }
+    if (atual < telas.length-1){
+      irPara(atual+1);
     } else {
-      form.style.display='none';
-      progresso.style.display='none';
+      form.style.display = 'none';
+      progresso.style.display = 'none';
       sucesso.classList.add('ativa');
       document.getElementById('aplicacao').scrollIntoView({block:'start'});
+      var h = sucesso.querySelector('h3');
+      if (h){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); }
     }
-  });
+  }
+
+  avancar.addEventListener('click', seguir);
 
   voltar.addEventListener('click', function(){
-    if(atual>0){ atual--; pinta(); }
+    if (atual > 0) irPara(atual-1);
+  });
+
+  // Enter avanca a etapa. Em textarea o Enter continua quebrando linha.
+  form.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter') return;
+    var alvo = e.target;
+    if (alvo.tagName === 'TEXTAREA') return;
+    if (alvo.tagName === 'BUTTON' || alvo.tagName === 'A') return;
+    e.preventDefault();
+    seguir();
+  });
+
+  // corrigir um campo limpa o aviso, em vez de deixar o erro na tela
+  form.addEventListener('input', function(e){
+    if (e.target.getAttribute('aria-invalid')) limpaErro();
+  });
+  form.addEventListener('change', function(e){
+    if (erro.classList.contains('visivel')) limpaErro();
   });
 
   pinta();
