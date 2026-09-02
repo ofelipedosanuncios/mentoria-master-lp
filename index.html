@@ -267,7 +267,7 @@ strong{font-weight:600;color:var(--roxo-escuro)}
   padding:clamp(28px,3.5vw,40px) clamp(28px,4vw,48px);
   background:linear-gradient(100deg,var(--verde-vidro),var(--creme) 72%);
   border-left:3px solid var(--roxo);border-radius:0 4px 4px 0;
-  font-size:var(--t-lead);color:var(--roxo-escuro);line-height:1.58;max-width:82ch;
+  font-size:var(--t-lead);color:var(--roxo-escuro);line-height:1.58;max-width:66ch;
   position:relative;
 }
 
@@ -330,7 +330,7 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 .nao-e ul{list-style:none;display:grid;gap:14px}
 .nao-e li{font-size:var(--t-sm);color:var(--tinta-suave);padding-left:30px;position:relative;line-height:1.55}
 .nao-e li::before{content:"";position:absolute;left:0;top:12px;width:16px;height:1px;background:var(--lilas)}
-.rodape-secao{margin-top:30px;font-size:15px;color:var(--tinta-suave);max-width:62ch;line-height:1.6}
+.rodape-secao{margin-top:30px;font-size:clamp(16.5px,1.2vw,18px);color:var(--tinta-suave);max-width:58ch;line-height:1.62}
 
 /* ---------------------------------------------------------------
    MODULOS
@@ -447,8 +447,8 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 .telas{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.6vw,20px);margin-top:clamp(40px,4.5vw,54px)}
 .telas img{width:100%;height:auto;border-radius:4px;border:1px solid rgba(255,255,255,.18);box-shadow:0 24px 48px -24px rgba(0,0,0,.5)}
 .legenda{
-  font-size:14px;color:var(--sobre-escuro-4);margin:22px auto 0;text-align:center;
-  max-width:62ch;line-height:1.6;
+  font-size:clamp(15.5px,1.15vw,17.5px);color:var(--sobre-escuro-4);margin:26px auto 0;text-align:center;
+  max-width:56ch;line-height:1.62;
 }
 
 /* ---------------------------------------------------------------
@@ -502,7 +502,7 @@ strong{font-weight:600;color:var(--roxo-escuro)}
    COMPARATIVO
    --------------------------------------------------------------- */
 .compara{background:#fff}
-.compara-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.4vw,28px);margin-top:clamp(46px,5.5vw,66px);align-items:start}
+.compara-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.4vw,28px);margin-top:clamp(46px,5.5vw,66px);align-items:stretch}
 .coluna-comp{border-radius:5px;padding:clamp(34px,3.6vw,44px) clamp(28px,3.2vw,38px)}
 .coluna-comp.outras{background:var(--creme);border:1px solid var(--linha)}
 .coluna-comp.nossa{
@@ -566,7 +566,7 @@ strong{font-weight:600;color:var(--roxo-escuro)}
   background:radial-gradient(120% 160% at 0% 0%, #fff 0%, var(--verde-vidro) 70%);
   border:1px solid var(--linha);border-radius:5px;
   padding:clamp(32px,3.6vw,42px) clamp(30px,4vw,46px);
-  display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,3vw,36px);align-items:center;max-width:84ch;
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,3vw,36px);align-items:center;
 }
 .garantia .num{
   font-family:var(--display);font-size:clamp(46px,4.4vw,60px);color:var(--roxo);line-height:1;
@@ -574,7 +574,7 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 }
 .garantia .num::after{content:"";position:absolute;right:0;top:8%;bottom:8%;width:1px;background:var(--verde)}
 .garantia h3{font-size:var(--t-h3);margin-bottom:12px}
-.garantia p{font-size:var(--t-sm);color:var(--tinta-suave);margin:0;line-height:1.58}
+.garantia p{font-size:var(--t-sm);color:var(--tinta-suave);margin:0;line-height:1.58;max-width:74ch}
 
 /* ---------------------------------------------------------------
    FAQ
@@ -599,7 +599,7 @@ summary::before{top:calc(50% - 9px);right:15.75px;width:1.5px;height:17px}
 details[open] summary::before{transform:rotate(90deg);opacity:0}
 details[open] summary{color:var(--roxo)}
 summary:focus-visible{outline:2px solid var(--roxo-escuro);outline-offset:3px}
-details p{padding:0 52px 28px 0;font-size:var(--t-sm);color:var(--tinta-suave);margin:0;line-height:1.68}
+details p{padding:0 52px 28px 0;font-size:var(--t-sm);color:var(--tinta-suave);margin:0;line-height:1.68;max-width:72ch}
 
 /* ---------------------------------------------------------------
    CTA FINAL
@@ -611,7 +611,7 @@ details p{padding:0 52px 28px 0;font-size:var(--t-sm);color:var(--tinta-suave);m
     var(--roxo);
 }
 .final h2{color:#fff}
-.caminhos{list-style:none;max-width:680px;margin:clamp(38px,4.5vw,52px) auto 0;display:grid;gap:14px;text-align:left}
+.caminhos{list-style:none;max-width:620px;margin:clamp(38px,4.5vw,52px) auto 0;display:grid;gap:14px;text-align:left}
 .caminhos li{
   background:rgba(255,255,255,.09);padding:20px 26px;border-radius:3px;font-size:var(--t-sm);
   color:var(--sobre-roxo-3);border:1px solid rgba(255,255,255,.1);line-height:1.55;
@@ -759,6 +759,26 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
 }
 
 /* ---------------------------------------------------------------
+   QUEBRA DE LINHA
+   O navegador quebra pelo espaco que sobra, sem olhar o resultado, e
+   sobra palavra sozinha no fim do paragrafo. "pretty" puxa uma palavra
+   da linha de cima para evitar isso; "balance" reparte as linhas por
+   igual, e serve para titulo e bloco curto e centrado.
+   Onde o navegador nao suporta, o espaco duro dos casos marcados no
+   HTML segura o mesmo resultado.
+   --------------------------------------------------------------- */
+/* Base: em texto corrido "pretty" impede que a ultima linha fique com uma
+   palavra so. Vale em bloco de qualquer tamanho. */
+p,li,dd,summary,figcaption,blockquote{text-wrap:pretty}
+
+/* Titulo e bloco curto e centrado ficam melhor repartidos por igual.
+   Atencao: o navegador so aplica "balance" ate cerca de seis linhas; acima
+   disso ele ignora, e por isso a base acima nao pode ser "balance".
+   O script no fim da pagina cuida do resto, medindo o desenho real. */
+h1,h2,h3,h4,.tarja,.legenda,.apoio-btn,.fecho-bonus,.intro-form,
+.fecho,.rodape-secao,.destaque-mat,.fecho-pava,.apoio-final{text-wrap:balance}
+
+/* ---------------------------------------------------------------
    MOVIMENTO REDUZIDO
    --------------------------------------------------------------- */
 @media (prefers-reduced-motion:reduce){
@@ -806,7 +826,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
       <div>
         <span class="olho">O ponto onde quase todo mundo trava</span>
         <h2>Saber o conteúdo não é a mesma coisa que saber executar</h2>
-        <p>A faculdade ensina legislação, conceito e teoria. Mas ninguém mostra como abrir o portal do órgão, montar a documentação, protocolar um processo e responder a uma exigência técnica com o nome da sua responsabilidade em cima.</p>
+        <p>A faculdade ensina legislação, conceito e teoria. Mas ninguém mostra como abrir o portal do órgão, montar a documentação, protocolar um processo e responder a uma exigência técnica com o nome da sua responsabilidade em&nbsp;cima.</p>
         <p>É por isso que tantos profissionais competentes travam na hora de executar.</p>
       </div>
       <ul class="dores">
@@ -858,7 +878,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
         <li>Você não pretende atuar tecnicamente na área ambiental.</li>
       </ul>
     </div>
-    <p class="rodape-secao">Contemplamos profissionais de Engenharia Ambiental, Engenharia Sanitária, Engenharia Florestal, Gestão Ambiental, Tecnologia Ambiental, Biologia, Geografia, Química e áreas correlatas.</p>
+    <p class="rodape-secao">Contemplamos profissionais de Engenharia Ambiental, Engenharia Sanitária, Engenharia Florestal, Gestão Ambiental, Tecnologia Ambiental, Biologia, Geografia, Química e áreas&nbsp;correlatas.</p>
   </div>
 </section>
 
@@ -872,7 +892,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
       <div class="modulo" data-numero="1">
         <span class="mes">1º mês</span>
         <h3>Serviços do IBAMA</h3>
-        <p>Cadastro Técnico Federal (CTF/APP), Certificado de Regularidade (CR), gestão das Taxas de Controle e Fiscalização Ambiental (TCFA) e elaboração do RAPP, o Relatório Anual de Atividades.</p>
+        <p>Cadastro Técnico Federal (CTF/APP), Certificado de Regularidade (CR), gestão das Taxas de Controle e Fiscalização Ambiental (TCFA) e elaboração do RAPP, o Relatório Anual de&nbsp;Atividades.</p>
       </div>
       <div class="modulo" data-numero="2">
         <span class="mes">2º mês</span>
@@ -895,7 +915,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
   <div class="env">
     <span class="olho">Metodologia exclusiva</span>
     <h2>Método P.A.V.A.<br>Profissional Ambiental Valorizado e Aplicado</h2>
-    <p class="intro">O P.A.V.A. é a metodologia que desenvolvi exclusivamente para a Mentoria Master, a partir da experiência prática de mercado. Ele existe porque conhecimento técnico sozinho não sustenta uma carreira: é preciso saber se posicionar, gerar oportunidades, executar com qualidade e crescer com consistência.</p>
+    <p class="intro">O P.A.V.A. é a metodologia que desenvolvi exclusivamente para a Mentoria Master, a partir da experiência prática de mercado. Ele existe porque conhecimento técnico sozinho não sustenta uma carreira: é preciso saber se posicionar, gerar oportunidades, executar com qualidade e crescer com&nbsp;consistência.</p>
     <div class="pava-grid">
       <div>
         <svg class="roda" viewBox="0 0 400 400" role="img" aria-label="Diagrama do Método P.A.V.A. Uma seta marca o início no Posicionamento e o percurso segue no sentido horário pelos quatro pilares: Posicionamento, Aquisição de oportunidades, Valor técnico e Avanço profissional">
@@ -918,13 +938,13 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
         </svg>
       </div>
       <div class="pilares">
-        <div class="pilar"><span class="letra">P</span><div><h3>Posicionamento</h3><p>Você aprende a se enxergar como profissional estratégico, entendendo seu papel no mercado e como se destacar, seja na empresa onde trabalha ou atuando como consultor.</p></div></div>
+        <div class="pilar"><span class="letra">P</span><div><h3>Posicionamento</h3><p>Você aprende a se enxergar como profissional estratégico, entendendo seu papel no mercado e como se destacar, seja na empresa onde trabalha ou atuando como&nbsp;consultor.</p></div></div>
         <div class="pilar"><span class="letra">A</span><div><h3>Aquisição de oportunidades</h3><p>Você desenvolve a habilidade de identificar e gerar oportunidades: novos clientes, demandas internas, projetos e possibilidades de crescimento profissional.</p></div></div>
-        <div class="pilar"><span class="letra">V</span><div><h3>Valor técnico</h3><p>Não basta saber, é preciso saber aplicar. Aqui você aprende a executar, na prática, os principais serviços e demandas ambientais com segurança e qualidade.</p></div></div>
-        <div class="pilar"><span class="letra">A</span><div><h3>Avanço profissional</h3><p>Você constrói uma trajetória mais sólida: crescimento na carreira, melhor posicionamento e mais valorização dentro do mercado ambiental.</p></div></div>
+        <div class="pilar"><span class="letra">V</span><div><h3>Valor técnico</h3><p>Não basta saber, é preciso saber aplicar. Aqui você aprende a executar, na prática, os principais serviços e demandas ambientais com segurança e&nbsp;qualidade.</p></div></div>
+        <div class="pilar"><span class="letra">A</span><div><h3>Avanço profissional</h3><p>Você constrói uma trajetória mais sólida: crescimento na carreira, melhor posicionamento e mais valorização dentro do mercado&nbsp;ambiental.</p></div></div>
       </div>
     </div>
-    <p class="fecho-pava">A metodologia respeita as legislações, sistemas, normas e procedimentos específicos de cada estado e município, porque um método que ignora a realidade do seu órgão ambiental não serve para nada.</p>
+    <p class="fecho-pava">A metodologia respeita as legislações, sistemas, normas e procedimentos específicos de cada estado e município, porque um método que ignora a realidade do seu órgão ambiental não serve para&nbsp;nada.</p>
   </div>
 </section>
 
@@ -963,7 +983,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
         <p>Um mês inteiro além do conteúdo técnico, com dois encontros:</p>
         <ul>
           <li>Tira-dúvidas sobre tudo o que foi trabalhado nos três módulos, para você fechar lacunas antes de seguir sozinho.</li>
-          <li>Gestão comercial aplicada à área ambiental: como prospectar clientes, precificar seus serviços, montar propostas e conduzir o processo comercial até o fechamento.</li>
+          <li>Gestão comercial aplicada à área ambiental: como prospectar clientes, precificar seus serviços, montar propostas e conduzir o processo comercial até o&nbsp;fechamento.</li>
         </ul>
       </div>
       <div class="cartao-bonus">
@@ -977,7 +997,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
           <li>Organização de documentos e pipeline de demandas</li>
           <li>Área de planejamento estratégico</li>
         </ul>
-        <p class="fecho-bonus">Junto com o sistema, você recebe uma aula autoexplicativa com uma especialista em processos organizacionais ambientais, ensinando na prática como utilizar a ferramenta.</p>
+        <p class="fecho-bonus">Junto com o sistema, você recebe uma aula autoexplicativa com uma especialista em processos organizacionais ambientais, ensinando na prática como utilizar a&nbsp;ferramenta.</p>
       </div>
     </div>
     <div class="telas">
@@ -986,7 +1006,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
       <img src="assets/img/ed-tarefas.jpg" alt="Tela de gestão de tarefas do Escritório Digital, com prazo, classificação e status de cada tarefa" width="880" height="338" loading="lazy" decoding="async">
       <img src="assets/img/ed-financeiro.jpg" alt="Tela de controle financeiro do Escritório Digital, com entradas, saídas e o balanço mês a mês" width="880" height="338" loading="lazy" decoding="async">
     </div>
-    <p class="legenda">A maior parte dos profissionais técnicos perde tempo e dinheiro por desorganização, não por falta de conhecimento. O Escritório Digital resolve isso.</p>
+    <p class="legenda">A maior parte dos profissionais técnicos perde tempo e dinheiro por desorganização, não por falta de conhecimento. O Escritório Digital resolve&nbsp;isso.</p>
   </div>
 </section>
 
@@ -1005,7 +1025,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
           <li>Passo a passo dos processos</li>
           <li>E-books e materiais complementares</li>
         </ul>
-        <p class="destaque-mat">Todos os modelos são editáveis, de acesso vitalício e podem ser usados nos seus serviços reais, com os seus clientes.</p>
+        <p class="destaque-mat">Todos os modelos são editáveis, de acesso vitalício e podem ser usados nos seus serviços reais, com os seus&nbsp;clientes.</p>
       </div>
       <div class="mat-visual">
         <img src="assets/img/simbolo.png" alt="" width="600" height="300" loading="lazy" decoding="async">
@@ -1022,10 +1042,10 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
       <div>
         <span class="olho">Quem vai te acompanhar</span>
         <h2>Quem vai te acompanhar nesses 4 meses</h2>
-        <p>Sou Pamela Neto, Engenheira Ambiental e Sanitarista, registrada no CREA/SP sob o número 5070315688, com especialização em Licenciamento Ambiental e mais de 10 anos de atuação na área ambiental.</p>
+        <p>Sou Pamela Neto, Engenheira Ambiental e Sanitarista, registrada no CREA/SP sob o número 5070315688, com especialização em Licenciamento Ambiental e mais de 10 anos de atuação na área&nbsp;ambiental.</p>
         <p>Sou fundadora da Pamela Neto Consultoria Ambiental, onde conduzo processos de licenciamento municipal e estadual, gestão e regularização de resíduos, atendimento a exigências de órgãos ambientais e elaboração de estudos e documentos técnicos.</p>
-        <p>Ao longo desses anos, atuei em projetos para empreendimentos privados, administração pública municipal e organizações do setor agroambiental, entre eles o Condomínio Quinta da Baroneza, a Prefeitura de Itatiba e a empresa Agroambiental.</p>
-        <p>Criei a Mentoria Master porque vi muitos profissionais capazes travarem na hora de executar, exatamente como eu travei no começo. O que eu ensino aqui não vem de teoria: vem da rotina real da minha consultoria, dos processos que eu conduzo e dos erros que já cometi e aprendi a evitar.</p>
+        <p>Ao longo desses anos, atuei em projetos para empreendimentos privados, administração pública municipal e organizações do setor agroambiental, entre eles o Condomínio Quinta da Baroneza, a Prefeitura de Itatiba e a empresa&nbsp;Agroambiental.</p>
+        <p>Criei a Mentoria Master porque vi muitos profissionais capazes travarem na hora de executar, exatamente como eu travei no começo. O que eu ensino aqui não vem de teoria: vem da rotina real da minha consultoria, dos processos que eu conduzo e dos erros que já cometi e aprendi a&nbsp;evitar.</p>
         <p class="assina">“Seja a mudança que você quer ver no mundo.”</p>
       </div>
     </div>
@@ -1052,7 +1072,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
         <ul>
           <li>Acompanhamento individual e personalizado para a sua realidade profissional.</li>
           <li>Desenvolvimento técnico e comercial, unindo conhecimento e prática de mercado.</li>
-          <li>Aplicação real com modelos, ferramentas e direcionamentos estratégicos.</li>
+          <li>Aplicação real com modelos, ferramentas e direcionamentos&nbsp;estratégicos.</li>
           <li>Foco na sua evolução, segurança para atuar e construção de uma consultoria.</li>
         </ul>
       </div>
@@ -1073,12 +1093,12 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
       </div>
       <div class="card-depo">
         <span class="aspas" aria-hidden="true">“</span>
-        <p>A aula prática sobre PGRS da Pamela foi incrível. Ela tem uma didática excelente e, em poucas horas, conseguiu ensinar toda a estrutura necessária para elaborar um PGRS do zero. Tenho certeza de que vou utilizar muito os modelos de documentos no meu dia a dia da consultoria.</p>
+        <p>A aula prática sobre PGRS da Pamela foi incrível. Ela tem uma didática excelente e, em poucas horas, conseguiu ensinar toda a estrutura necessária para elaborar um PGRS do zero. Tenho certeza de que vou utilizar muito os modelos de documentos no meu dia a dia da&nbsp;consultoria.</p>
         <div class="autor"><span class="sem-foto" aria-hidden="true">LC</span><div><strong>Luan Cruz</strong><span>Aluno da Mentoria Master</span></div></div>
       </div>
       <div class="card-depo">
         <span class="aspas" aria-hidden="true">“</span>
-        <p>Antes, estava insegura, com muitas dúvidas. Depois da consultoria me sinto uma profissional bem mais preparada, pois todas as dúvidas foram sanadas com muito cuidado e responsabilidade profissional. A Pâmela tem muito conhecimento e paixão pelo que faz.</p>
+        <p>Antes, estava insegura, com muitas dúvidas. Depois da consultoria me sinto uma profissional bem mais preparada, pois todas as dúvidas foram sanadas com muito cuidado e responsabilidade profissional. A Pâmela tem muito conhecimento e paixão pelo&nbsp;que&nbsp;faz.</p>
         <div class="autor"><img src="assets/img/tamara.jpg" alt="Tamara Alves" width="130" height="130" loading="lazy" decoding="async"><div><strong>Tamara Alves</strong><span>GEOTAM</span></div></div>
       </div>
     </div>
@@ -1121,7 +1141,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
       <details><summary>Sou CLT e não quero abrir consultoria. Faz sentido para mim?</summary><p>Faz sim, desde que você atue na área ambiental dentro da empresa. Muitos alunos usam a mentoria para dominar um serviço específico e crescer onde já trabalham.</p></details>
       <details><summary>Moro em outro estado. Funciona para a legislação da minha região?</summary><p>Sim. A Mentoria Master pode ser aplicada em qualquer estado do Brasil, porque todo o material e todas as aulas são personalizados de acordo com as legislações, sistemas e procedimentos do seu estado.</p></details>
       <details><summary>Como são definidos os horários dos encontros?</summary><p>Os encontros são semanais, com duração de 1h30 a 2h, e os horários são combinados diretamente com você. Como a mentoria é individual, a agenda é montada em conjunto.</p></details>
-      <details><summary>Posso usar os modelos de documentos nos meus serviços reais?</summary><p>Sim. Todos os modelos são editáveis, de acesso vitalício e feitos justamente para serem aplicados no seu dia a dia, com os seus clientes.</p></details>
+      <details><summary>Posso usar os modelos de documentos nos meus serviços reais?</summary><p>Sim. Todos os modelos são editáveis, de acesso vitalício e feitos justamente para serem aplicados no seu dia a dia, com os seus&nbsp;clientes.</p></details>
       <details><summary>Preencher o formulário garante a minha vaga?</summary><p>Não. Depois do envio, a sua aplicação passa por uma avaliação. Se o seu perfil estiver alinhado com a mentoria, você é convidado para uma call de diagnóstico. Caso não esteja, minha equipe entra em contato para avisar.</p></details>
     </div>
   </div>
@@ -1138,7 +1158,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
     </ul>
     <p>A Mentoria Master é um espaço de troca, aprendizado e direcionamento, pensado para profissionais ambientais que querem evoluir com mais segurança, clareza e estratégia. Se você sente que precisa de apoio para dar o próximo passo na sua trajetória, preencha o formulário. Levo poucos minutos analisando cada aplicação e respondo todas.</p>
     <div class="centro"><a href="#aplicacao" class="btn btn-claro">Aplique-se para a mentoria</a></div>
-    <p class="apoio-btn">Leva menos de 5 minutos para preencher. Garantia de 7 dias após a entrada na mentoria.</p>
+    <p class="apoio-btn">Leva menos de 5 minutos para preencher. Garantia de 7 dias após a entrada na&nbsp;mentoria.</p>
   </div>
 </section>
 
@@ -1523,6 +1543,92 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
   setTimeout(function(){
     blocos.forEach(function(b){ b.classList.add('visivel'); });
   }, 2500);
+})();
+
+/* ---------------------------------------------------------------
+   EQUILIBRIO DAS LINHAS
+
+   O CSS ja resolve a maior parte, mas ele nao sabe quantas linhas o
+   bloco vai ocupar em cada largura de tela: um paragrafo que cabe em
+   duas linhas no notebook ocupa cinco no celular, e a regra boa para
+   um e ruim para o outro.
+
+   Este trecho mede o desenho real depois que a fonte carregou e, onde
+   a ultima linha ficou curta demais, pede ao navegador que reparta as
+   linhas por igual. So troca uma propriedade de CSS: nao encosta em
+   nenhuma palavra, nao insere nem remove nada do texto.
+   --------------------------------------------------------------- */
+(function(){
+  if (!CSS || !CSS.supports || !CSS.supports('text-wrap','balance')) return;
+
+  var blocos = Array.prototype.slice.call(document.querySelectorAll(
+    'p, li, summary, blockquote, figcaption, .fecho, .tarja'
+  )).filter(function(el){
+    return !el.querySelector('p, li, div, ul') &&
+           (el.textContent || '').trim().split(/\s+/).length >= 6;
+  });
+
+  var CURTA = 0.26;   /* ultima linha ocupando menos que isso da caixa */
+  var MAX_LINHAS = 6; /* acima disso o navegador ignora o balance */
+
+  function linhasDe(el){
+    var r = document.createRange();
+    r.selectNodeContents(el);
+    var tops = [], tol = 4;
+    Array.prototype.forEach.call(r.getClientRects(), function(x){
+      if (!x.width || !x.height) return;
+      var l = null;
+      for (var i = 0; i < tops.length; i++){
+        if (Math.abs(tops[i].top - x.top) < tol){ l = tops[i]; break; }
+      }
+      if (l){ l.left = Math.min(l.left, x.left); l.right = Math.max(l.right, x.right); }
+      else tops.push({ top: x.top, left: x.left, right: x.right });
+    });
+    return tops.sort(function(a,b){ return a.top - b.top; });
+  }
+
+  /* uma palavra comprida sozinha ocupa quase metade da linha e passaria
+     despercebida por um criterio so de largura, entao conta as palavras */
+  function sozinhaNaUltima(el, ultima){
+    var no = el.firstChild;
+    if (el.childNodes.length !== 1 || !no || no.nodeType !== 3) return false;
+    var texto = no.textContent, tol = 4, pos = 0, conta = 0;
+    var palavras = texto.trim().split(/\s+/);
+    for (var i = 0; i < palavras.length; i++){
+      var j = texto.indexOf(palavras[i], pos);
+      if (j < 0) continue;
+      pos = j + palavras[i].length;
+      var r = document.createRange();
+      r.setStart(no, j); r.setEnd(no, pos);
+      if (Math.abs(r.getBoundingClientRect().top - ultima.top) < tol){
+        conta++;
+        if (conta > 1) return false;
+      }
+    }
+    return conta === 1;
+  }
+
+  function equilibrar(){
+    blocos.forEach(function(el){
+      el.style.textWrap = '';                      /* remede do zero */
+      if (!el.offsetParent) return;
+      var linhas = linhasDe(el);
+      if (linhas.length < 2 || linhas.length > MAX_LINHAS) return;
+      var caixa = el.getBoundingClientRect().width;
+      if (!caixa) return;
+      var ultima = linhas[linhas.length - 1];
+      var curta = (ultima.right - ultima.left) / caixa < CURTA;
+      if (curta || sozinhaNaUltima(el, ultima)) el.style.textWrap = 'balance';
+    });
+  }
+
+  var agendado;
+  function agendar(){ clearTimeout(agendado); agendado = setTimeout(equilibrar, 120); }
+
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(equilibrar);
+  else window.addEventListener('load', equilibrar);
+  equilibrar();
+  window.addEventListener('resize', agendar);
 })();
 
 </script>
