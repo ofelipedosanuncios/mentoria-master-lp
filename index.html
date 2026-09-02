@@ -8,6 +8,8 @@
 <title>Mentoria Master | Pamela Neto | Mentoria individual para profissionais da área ambiental</title>
 <meta name="description" content="Aprenda a executar, na prática, os três serviços que o mercado ambiental mais contrata: IBAMA, Gestão de Resíduos e Licenciamento Ambiental. Mentoria individual e ao vivo, com acompanhamento de quem atua na área há mais de 10 anos.">
 <meta name="theme-color" content="#673165">
+<!-- iOS transformava o numero do CREA em link de telefone e quebrava a lista do hero -->
+<meta name="format-detection" content="telephone=no">
 
 <!-- Icone da aba -->
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -206,8 +208,8 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 
 .selos{list-style:none;margin-top:42px;display:grid;gap:15px;max-width:44ch}
 .selos li{
-  font-size:var(--t-sm);color:var(--roxo-escuro);display:grid;grid-template-columns:auto 1fr;
-  gap:14px;align-items:start;font-weight:400;line-height:1.5;
+  font-size:var(--t-sm);color:var(--roxo-escuro);display:flex;
+  gap:14px;align-items:flex-start;font-weight:400;line-height:1.5;
   padding-right:12px;
 }
 .selos li::before{
@@ -442,9 +444,8 @@ strong{font-weight:600;color:var(--roxo-escuro)}
 .cartao-bonus ul{list-style:none;display:grid;gap:13px;margin-top:18px}
 .cartao-bonus li{font-size:var(--t-sm);color:var(--sobre-escuro-3);padding-left:26px;position:relative;line-height:1.55}
 .cartao-bonus li::before{content:"";position:absolute;left:0;top:12px;width:14px;height:1px;background:var(--verde)}
-.telas{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(14px,1.6vw,20px);margin-top:clamp(40px,4.5vw,54px)}
-.telas img{border-radius:4px;border:1px solid rgba(255,255,255,.18);box-shadow:0 24px 48px -24px rgba(0,0,0,.5)}
-.telas .coluna{display:grid;gap:clamp(14px,1.6vw,20px)}
+.telas{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.6vw,20px);margin-top:clamp(40px,4.5vw,54px)}
+.telas img{width:100%;height:auto;border-radius:4px;border:1px solid rgba(255,255,255,.18);box-shadow:0 24px 48px -24px rgba(0,0,0,.5)}
 .legenda{
   font-size:14px;color:var(--sobre-escuro-4);margin:22px auto 0;text-align:center;
   max-width:62ch;line-height:1.6;
@@ -694,6 +695,8 @@ footer a{color:var(--rodape-texto);text-decoration:none;border-bottom:1px solid 
 footer a:hover{color:#fff;border-color:#fff}
 footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
 .rodape-links{display:flex;gap:26px;flex-wrap:wrap;justify-content:flex-end}
+.rodape-grid p a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.28)}
+.rodape-grid p a:hover{border-bottom-color:rgba(255,255,255,.7)}
 .rodape-base{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;padding-top:26px;font-size:13.5px;color:var(--rodape-texto-2)}
 
 
@@ -775,7 +778,7 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
   <div class="env">
     <div class="hero-grid">
       <div>
-        <img src="assets/img/logo.png" alt="Pamela Neto Consultoria Ambiental" class="marca" width="440" height="203">
+        <img src="assets/img/simbolo.png" alt="Pamela Neto" class="marca" width="600" height="300">
         <span class="tarja">Mentoria individual para profissionais da área ambiental</span>
         <h1>Você aprendeu a teoria.<br>Agora é hora de aprender a executar.</h1>
         <p class="hero-sub">Mentoria individual e ao vivo para profissionais da área ambiental que querem executar, com segurança, os três serviços que o mercado mais contrata: Serviços do IBAMA, Gestão de Resíduos e Licenciamento Ambiental.</p>
@@ -895,12 +898,16 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
     <p class="intro">O P.A.V.A. é a metodologia que desenvolvi exclusivamente para a Mentoria Master, a partir da experiência prática de mercado. Ele existe porque conhecimento técnico sozinho não sustenta uma carreira: é preciso saber se posicionar, gerar oportunidades, executar com qualidade e crescer com consistência.</p>
     <div class="pava-grid">
       <div>
-        <svg class="roda" viewBox="0 0 400 400" role="img" aria-label="Diagrama do Método P.A.V.A. com quatro pilares: Posicionamento, Aquisição de oportunidades, Valor técnico e Avanço profissional">
+        <svg class="roda" viewBox="0 0 400 400" role="img" aria-label="Diagrama do Método P.A.V.A. Uma seta marca o início no Posicionamento e o percurso segue no sentido horário pelos quatro pilares: Posicionamento, Aquisição de oportunidades, Valor técnico e Avanço profissional">
           <!-- as quatro cores abaixo acompanham os marcadores dos pilares ao lado -->
           <path d="M200 200 L200 40 A160 160 0 0 0 40 200 Z" fill="#673165"/>
           <path d="M200 200 L200 40 A160 160 0 0 1 360 200 Z" fill="#9BC4B3"/>
           <path d="M200 200 L360 200 A160 160 0 0 1 200 360 Z" fill="#4A2249"/>
           <path d="M200 200 L200 360 A160 160 0 0 1 40 200 Z" fill="#A983B7"/>
+          <!-- seta de inicio: o percurso comeca no P e segue no sentido horario -->
+          <path d="M67 171.7 A136 136 0 0 1 158 70.7" fill="none" stroke="#FFFFFF"
+                stroke-width="3.4" stroke-linecap="round" opacity=".92"/>
+          <path d="M166.6 67.9 L155.9 77.2 L152.5 66.7 Z" fill="#FFFFFF" opacity=".92"/>
           <circle cx="200" cy="200" r="60" fill="#F7F5F6"/>
           <text x="120" y="130" font-family="Cinzel,serif" font-size="42" fill="#FFFFFF" text-anchor="middle">P</text>
           <text x="280" y="130" font-family="Cinzel,serif" font-size="42" fill="#4A2249" text-anchor="middle">A</text>
@@ -974,11 +981,10 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
       </div>
     </div>
     <div class="telas">
-      <img src="assets/img/ed-home.jpg" alt="Tela inicial do Escritório Digital, com áreas de gestão, empresa e serviços" width="760" height="365" loading="lazy" decoding="async">
-      <div class="coluna">
-        <img src="assets/img/ed-tarefas.jpg" alt="Tela de gestão de tarefas do Escritório Digital" width="760" height="242" loading="lazy" decoding="async">
-        <img src="assets/img/ed-financeiro.jpg" alt="Tela de controle financeiro do Escritório Digital" width="760" height="420" loading="lazy" decoding="async">
-      </div>
+      <img src="assets/img/ed-home.jpg" alt="Tela inicial do Escritório Digital, com links úteis, áreas da empresa e produtos" width="880" height="496" loading="lazy" decoding="async">
+      <img src="assets/img/ed-crm.jpg" alt="Tela de CRM do Escritório Digital, com o acompanhamento de cada cliente, o estágio da proposta e o valor" width="880" height="497" loading="lazy" decoding="async">
+      <img src="assets/img/ed-tarefas.jpg" alt="Tela de gestão de tarefas do Escritório Digital, com prazo, classificação e status de cada tarefa" width="880" height="338" loading="lazy" decoding="async">
+      <img src="assets/img/ed-financeiro.jpg" alt="Tela de controle financeiro do Escritório Digital, com entradas, saídas e o balanço mês a mês" width="880" height="338" loading="lazy" decoding="async">
     </div>
     <p class="legenda">A maior parte dos profissionais técnicos perde tempo e dinheiro por desorganização, não por falta de conhecimento. O Escritório Digital resolve isso.</p>
   </div>
@@ -1287,13 +1293,13 @@ footer a:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
   <div class="env">
     <div class="rodape-grid">
       <div>
-        <img src="assets/img/logo.png" alt="Pamela Neto Consultoria Ambiental" width="440" height="203" loading="lazy" decoding="async">
+        <img src="assets/img/simbolo.png" alt="" width="600" height="300" loading="lazy" decoding="async">
         <p class="rodape-empresa">Pamela Neto Consultoria Ambiental · Engenheira Ambiental e Sanitarista · CREA/SP 5070315688</p>
-        <p>(11) 97565-2171 · consultoria@pamelaneto.com.br</p>
+        <p><a href="tel:+5511975652171">(11) 97565-2171</a> · <a href="mailto:consultoria@pamelaneto.com.br">consultoria@pamelaneto.com.br</a></p>
       </div>
       <div class="rodape-links">
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
+        <a href="https://www.instagram.com/eng.pamelaneto" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@eng.pamelaneto" target="_blank" rel="noopener">TikTok</a>
         <a href="#">Política de Privacidade</a>
       </div>
     </div>
