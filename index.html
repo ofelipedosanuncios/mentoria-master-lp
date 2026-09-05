@@ -680,6 +680,9 @@ details p{padding:0 52px 28px 0;font-size:var(--t-sm);color:var(--tinta-suave);m
 .sucesso p{color:var(--tinta-suave);max-width:48ch;margin:0 auto 14px;font-size:var(--t-sm);line-height:1.62}
 .erro{color:var(--erro);font-size:14px;margin-top:12px;display:none;font-weight:400}
 .erro.visivel{display:block}
+/* Armadilha de robo: sai do fluxo visual sem usar display:none, que alguns robos detectam */
+.armadilha{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.btn[aria-busy="true"]{opacity:.72;cursor:progress}
 
 /* ---------------------------------------------------------------
    RODAPE
@@ -1285,8 +1288,12 @@ h1,h2,h3,h4,.tarja,.legenda,.apoio-btn,.fecho-bonus,.intro-form,
         <fieldset class="tela" data-tela="7" style="border:0" aria-labelledby="tela-7-titulo">
           <h3 id="tela-7-titulo" tabindex="-1">Para finalizar</h3>
           <div class="campo"><label for="momento-certo">Por que você acredita que este é o momento certo para buscar uma mentoria profissional?</label><textarea id="momento-certo" name="momento-certo" required></textarea></div>
-          <label class="lgpd"><input type="checkbox" id="lgpd" required> <span>Ao enviar, você concorda que os seus dados sejam utilizados para avaliação da sua aplicação e contato sobre a Mentoria Master, conforme a nossa <a href="#">Política de Privacidade</a>.</span></label>
+          <label class="lgpd"><input type="checkbox" id="lgpd" name="lgpd" required> <span>Ao enviar, você concorda que os seus dados sejam utilizados para avaliação da sua aplicação e contato sobre a Mentoria Master, conforme a nossa <a href="#">Política de Privacidade</a>.</span></label>
         </fieldset>
+
+        <div class="armadilha" aria-hidden="true">
+          <input type="text" name="assunto" tabindex="-1" autocomplete="off">
+        </div>
 
         <p class="erro" id="erro" role="alert"></p>
 
@@ -1332,6 +1339,17 @@ h1,h2,h3,h4,.tarja,.legenda,.apoio-btn,.fecho-bonus,.intro-form,
 
 <script>
 (function(){
+  /* ------------------------------------------------------------------
+     Envio da aplicacao.
+     ENDPOINT e a URL do Web App do Google Apps Script que grava a resposta
+     na planilha, avisa a Pamela e manda a confirmacao para quem se aplicou.
+     Enquanto estiver em branco, a pagina se comporta como antes: valida,
+     navega e mostra a tela de confirmacao, sem enviar nada.
+     Como publicar o Web App: docs/formulario.md.
+     ------------------------------------------------------------------ */
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxr3JbFbmHeSkm52l9ET_wfmG6xljV1ze-MyPWrgtyIH8RJQogfBkA8DggYDplPfwZy/exec';
+  var CHAVE = '';
+
   var telas = Array.prototype.slice.call(document.querySelectorAll('.tela'));
   var atual = 0;
   var barra = document.getElementById('barra-preenchida');
@@ -1427,18 +1445,156 @@ h1,h2,h3,h4,.tarja,.legenda,.apoio-btn,.fecho-bonus,.intro-form,
     if (titulo) titulo.focus({preventScroll:true});
   }
 
+  // texto que a pessoa leu ao marcar a opcao, que e o que a Pamela precisa ler depois
+  function textoMarcado(input){
+    var lab = input.closest('label.opcao');
+    return lab ? lab.textContent.replace(/\s+/g,' ').trim() : input.value;
+  }
+
+  // pergunta e resposta de cada campo, na ordem em que aparecem na tela
+  function coleta(){
+    var itens = [];
+    var vistos = {};
+    var campos = form.querySelectorAll('input[name], textarea[name], select[name]');
+    Array.prototype.forEach.call(campos, function(c){
+      if (c.name === 'assunto') return;              // armadilha, vai separada
+      if (vistos[c.name]) return;
+      vistos[c.name] = true;
+      var pergunta, valor;
+      if (c.name === 'lgpd'){
+        pergunta = 'Aceite da Política de Privacidade';
+        valor = c.checked ? 'Aceito' : 'Não aceito';
+      } else if (c.type === 'radio'){
+        pergunta = rotuloDe(c);
+        var m = form.querySelector('input[name="'+c.name+'"]:checked');
+        valor = m ? textoMarcado(m) : '';
+      } else if (c.type === 'checkbox'){
+        pergunta = rotuloDe(c);
+        var marcados = form.querySelectorAll('input[name="'+c.name+'"]:checked');
+        valor = Array.prototype.map.call(marcados, textoMarcado).join(' · ');
+      } else {
+        pergunta = rotuloDe(c);
+        valor = c.value.trim();
+      }
+      itens.push({ nome: c.name, pergunta: pergunta, valor: valor });
+    });
+    return itens;
+  }
+
+  var CAMPANHA_GUARDADA = 'mm_campanha';
+  var ORIGEM_GUARDADA = 'mm_origem';
+
+  function guarda(chave, valor){
+    try { sessionStorage.setItem(chave, valor); } catch(e){}
+  }
+  function guardado(chave){
+    try { return sessionStorage.getItem(chave); } catch(e){ return null; }
+  }
+
+  function parametrosDeCampanha(){
+    var out = {};
+    try {
+      new URLSearchParams(location.search).forEach(function(v,k){
+        if (/^(utm_|gclid|fbclid)/i.test(k)) out[k] = v;
+      });
+    } catch(e){}
+    if (Object.keys(out).length) return out;
+    var antes = guardado(CAMPANHA_GUARDADA);
+    if (antes){ try { return JSON.parse(antes); } catch(e){} }
+    return {};
+  }
+
+  // De onde a pessoa veio, em nome que a Pamela reconhece na planilha
+  function origemDoAcesso(){
+    var r = document.referrer || '';
+    if (!r){ return guardado(ORIGEM_GUARDADA) || 'direto'; }
+    var casa = '';
+    try { casa = new URL(r).hostname.replace(/^www\./,''); } catch(e){ casa = r; }
+    if (/instagram|ig\.me|l\.instagram/.test(casa)) return 'Instagram';
+    if (/tiktok/.test(casa)) return 'TikTok';
+    if (/facebook|fb\.me|fb\.com/.test(casa)) return 'Facebook';
+    if (/google/.test(casa)) return 'Google';
+    if (/bing|duckduckgo|yahoo/.test(casa)) return 'Busca (' + casa + ')';
+    if (casa === location.hostname) return guardado(ORIGEM_GUARDADA) || 'direto';
+    return casa;
+  }
+
+  // Guarda logo na chegada: e o momento em que o referrer e a URL ainda estao intactos
+  (function(){
+    var c = parametrosDeCampanha();
+    if (Object.keys(c).length) guarda(CAMPANHA_GUARDADA, JSON.stringify(c));
+    if (!guardado(ORIGEM_GUARDADA)) guarda(ORIGEM_GUARDADA, origemDoAcesso());
+  })();
+
+  function mostraSucesso(){
+    form.style.display = 'none';
+    progresso.style.display = 'none';
+    sucesso.classList.add('ativa');
+    document.getElementById('aplicacao').scrollIntoView({block:'start'});
+    var h = sucesso.querySelector('h3');
+    if (h){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); }
+  }
+
+  function falhaNoEnvio(){
+    erro.textContent = 'Não consegui enviar a sua aplicação agora. Tente novamente em instantes ou escreva para consultoria@pamelaneto.com.br.';
+    erro.classList.add('visivel');
+    avancar.disabled = false;
+    avancar.removeAttribute('aria-busy');
+    avancar.textContent = 'Enviar aplicação';
+  }
+
+  var enviando = false;
+
+  function envia(){
+    if (enviando) return;
+
+    var carga = {
+      chave: CHAVE,
+      enviadoEm: new Date().toISOString(),
+      pagina: location.href,
+      referencia: guardado(ORIGEM_GUARDADA) || origemDoAcesso(),
+      campanha: parametrosDeCampanha(),
+      assunto: (form.elements['assunto'] ? form.elements['assunto'].value : ''),
+      campos: coleta()
+    };
+
+    // Sem endpoint configurado a pagina segue como estava: nada e enviado.
+    if (!ENDPOINT){
+      if (window.console) console.warn('Formulário sem ENDPOINT configurado: a aplicação não foi enviada.');
+      mostraSucesso();
+      return;
+    }
+
+    enviando = true;
+    limpaErro();
+    avancar.disabled = true;
+    avancar.setAttribute('aria-busy','true');
+    avancar.textContent = 'Enviando...';
+
+    // text/plain evita o preflight de CORS, que o Apps Script nao responde
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(carga),
+      redirect: 'follow'
+    })
+    .then(function(r){ return r.text(); })
+    .then(function(t){
+      var d = {};
+      try { d = JSON.parse(t); } catch(e){}
+      if (d && d.ok){ enviando = false; mostraSucesso(); }
+      else { enviando = false; falhaNoEnvio(); }
+    })
+    .catch(function(){ enviando = false; falhaNoEnvio(); });
+  }
+
   function seguir(){
     var invalido = primeiroInvalido();
     if (invalido){ mostraErro(invalido); return; }
     if (atual < telas.length-1){
       irPara(atual+1);
     } else {
-      form.style.display = 'none';
-      progresso.style.display = 'none';
-      sucesso.classList.add('ativa');
-      document.getElementById('aplicacao').scrollIntoView({block:'start'});
-      var h = sucesso.querySelector('h3');
-      if (h){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); }
+      envia();
     }
   }
 
